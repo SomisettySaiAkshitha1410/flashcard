@@ -17,18 +17,32 @@ function FlashcardList() {
       .catch(error => console.error('Error fetching flashcards:', error));
   }, []);
 
+
+
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this flashcard?')) {
+
       fetch(`https://flashcard-5ds0.onrender.com/api/flashcards/${id}`, {
         method: 'DELETE',
       })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json(); // Check if your API returns any JSON response on delete
+        })
         .then(() => {
-          setFlashcards(flashcards.filter(flashcard => flashcard.id !== id));
+          // Update state only if deletion is successful
+          setFlashcards(prevFlashcards => prevFlashcards.filter(flashcard => flashcard.id !== id));
           alert('Flashcard deleted successfully!');
         })
-        .catch(error => console.error('Error deleting flashcard:', error));
+        .catch(error => {
+          console.error('Error deleting flashcard:', error);
+          alert('Failed to delete flashcard. Please try again.');
+        });
     }
   };
+  
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % flashcards.length);

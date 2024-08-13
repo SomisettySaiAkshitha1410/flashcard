@@ -51,10 +51,12 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Flashcard.delete(req.params.id, (err) => {
     if (err) {
-      return res.status(500).send(err);
+      console.error('Error deleting flashcard:', err);
+      return res.status(500).json({ error: 'Failed to delete flashcard. Please try again.' });
     }
     res.sendStatus(204);
   });
 });
+
 
 module.exports = router;

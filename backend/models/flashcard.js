@@ -1,6 +1,7 @@
 const connection = require('../config/db');
 
 const Flashcard = {
+  
   getAll: (callback) => {
     connection.query('SELECT * FROM flashcards', callback);
   },
@@ -14,7 +15,19 @@ const Flashcard = {
     connection.query('UPDATE flashcards SET ? WHERE id = ?', [flashcard, id], callback);
   },
   delete: (id, callback) => {
-    connection.query('DELETE FROM flashcards WHERE id = ?', [id], callback);
+    //connection.query('DELETE FROM flashcards WHERE id = ?', [id], callback);
+    const query = 'DELETE FROM flashcards WHERE id = ?';
+
+    connection.query(query, [id], (err, results) => {
+      if (err) {
+        return callback(err);
+      }
+      if (results.affectedRows === 0) {
+        return callback(new Error('Flashcard not found'));
+      }
+      callback(null);
+    });
+
   },
 };
 
