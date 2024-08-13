@@ -12,12 +12,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd frontend
+          npm install
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          REPOSITORY_URL: ${{ https://github.com/SomisettySaiAkshitha1410/flashcard.git }}
+          GITHUB_REPO: ${{ github.repository_url  }}
         run: |
+          cd frontend
           npm run build
           git config --global user.name "Akshitha"
           git config --global user.email "akshithasomisetty@gmail.com"
