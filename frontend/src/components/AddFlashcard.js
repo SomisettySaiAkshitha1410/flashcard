@@ -11,7 +11,7 @@ function AddFlashcard() {
     e.preventDefault();
 
     const newFlashcard = { question, answer };
-    fetch('http://localhost:5000/api/flashcards', {
+    fetch('https://flashcard-5ds0.onrender.com/api/flashcards', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

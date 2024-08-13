@@ -9,7 +9,7 @@ function EditFlashcard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/flashcards/${id}`)
+    fetch(`https://flashcard-5ds0.onrender.com/api/flashcards/${id}`)
       .then(response => response.json())
       .then(data => {
         setQuestion(data.question);
@@ -22,7 +22,7 @@ function EditFlashcard() {
     e.preventDefault();
 
     const updatedFlashcard = { question, answer };
-    fetch(`http://localhost:5000/api/flashcards/${id}`, {
+    fetch(`https://flashcard-5ds0.onrender.com/api/flashcards/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

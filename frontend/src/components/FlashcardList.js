@@ -11,7 +11,7 @@ function FlashcardList() {
   const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/flashcards')
+    fetch('https://flashcard-5ds0.onrender.com/api/flashcards')
       .then(response => response.json())
       .then(data => setFlashcards(data))
       .catch(error => console.error('Error fetching flashcards:', error));
@@ -19,7 +19,7 @@ function FlashcardList() {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this flashcard?')) {
-      fetch(`http://localhost:5000/api/flashcards/${id}`, {
+      fetch(`https://flashcard-5ds0.onrender.com/api/flashcards/${id}`, {
         method: 'DELETE',
       })
         .then(() => {
@@ -58,7 +58,17 @@ function FlashcardList() {
     navigate(`/edit/${flashcards[currentIndex].id}`); // Navigate to the edit page with the flashcard ID
   };
 
-  if (flashcards.length === 0) return <p>Loading flashcards...</p>;
+  if (flashcards.length === 0) {
+    return (
+      <div className="container text-center mt-5">
+        <h1 className="mb-4">Welcome to FlashCard Tool</h1>
+        <p>Get started by adding your first flashcard!</p>
+        <Link to="/add" className="btn btn-primary mt-3">
+          <i className="fas fa-plus"></i> Add Flashcard
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>
