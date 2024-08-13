@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+}
+
+.flashcard-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flashcard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    width: 200px;
+    text-align: left;
+}
+

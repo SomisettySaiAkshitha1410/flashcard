@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  padding: 20px;
+}
+
+
+.flashcard-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flashcard-grid-item {
+  width: 30%;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard {
+  text-align: center;
+  margin: auto;
+  max-width: 400px;
+  margin-top: 30px;
+}
+
+.flashcard-buttons {
+  margin-top: 20px;
+}
+
+.flashcard-buttons .btn {
+  margin: 5px;
+}
+
+.flashcard-test {
+  text-align: center;
+  margin: auto;
+  max-width: 400px;
+}
+
+.question {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+}
