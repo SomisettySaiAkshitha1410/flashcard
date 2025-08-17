@@ -81,8 +81,8 @@ npm start
 
 ## 🌍 Deployment
 
-* **Frontend** → Deployed on Netlify: [Live App](#)
-* **Backend** → Deployed on Render: [API Endpoint](#)
+* **Frontend** → Deployed on Netlify: [Live App](https://leafy-monstera-c8231a.netlify.app/)
+* **Backend** → Deployed on Render: [API Endpoint](https://flashcard-5ds0.onrender.com)
 * **Database** → Hosted on MySQL
 
 ---
